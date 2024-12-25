@@ -18,3 +18,5 @@ export interface CelebrityCardType{
     _id: string;
     role: string;
 }
+
+  
