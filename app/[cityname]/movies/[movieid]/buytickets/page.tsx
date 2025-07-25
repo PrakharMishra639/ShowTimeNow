@@ -107,19 +107,20 @@ const BuyTicketsPage: React.FC = () => {
                 {movie.genre.join(",")}
               </h3>
             </div>
-            <DatePicker
-  getSelectedDay={(date: any) => {
-    console.log(date);
+            <DatePicker getSelectedDay={
+                            (date: any) => {
+                                console.log(date)
+                                setSelectedDate(date)
+                            }
+                        }
+                            endDate={100}
+                            selectDate={
+                                selectedDate
+                            }
+                            labelFormat={"MMMM"}
+                            color={"rgb(248, 68, 100)"}
+                        />
 
-    // Ensure that `date` is a Date object
-    const selectedDate = new Date(date);
-    setSelectedDate(selectedDate.toISOString().split("T")[0]);
-  }}
-  endDate={100}
-  selectDate={selectedDate}
-  labelFormat={"MMMM"}
-  color={"rgb(248, 68, 100)"}
-/>
           </div>
 
           {theatres && theatres.length > 0 && (

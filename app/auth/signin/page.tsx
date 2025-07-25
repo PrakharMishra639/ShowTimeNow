@@ -45,14 +45,17 @@ const Signin = () => {
 
     // Perform login
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_API}/auth/login`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-        credentials: "include",
-      });
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_API}/auth/login`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+          credentials: "include",
+        }
+      );
       const response = await res.json();
 
       if (response.ok) {
@@ -76,7 +79,7 @@ const Signin = () => {
   };
 
   return (
-    <div className="authout">
+    <div className="authout mb-8">
       <div className="authin flex w-[900px] min-h-[400px] mx-auto shadow-[0_0_10px_0_rgba(0,0,0,0.2)] mt-[50px] rounded-lg overflow-hidden bg-white">
         <div className="left w-[40%] bg-black overflow-hidden flex justify-center items-center">
           <Image src={logo} alt="Logo" className="img" />
@@ -93,7 +96,9 @@ const Signin = () => {
                 onChange={handleChange}
                 className="bg-white border-b-[1px] border-b-[#f84464] p-[10px] text-sm w-auto"
               />
-              {errors.email && <span className="formerror text-[#ff0000]">{errors.email}</span>}
+              {errors.email && (
+                <span className="formerror text-[#ff0000]">{errors.email}</span>
+              )}
             </div>
             <div className="forminput_cont flex flex-col my-[10px] mx-0 gap-[10px] w-[100%] relative">
               <label className="text-xl text-[#f84464]">Password</label>
@@ -105,7 +110,11 @@ const Signin = () => {
                 onChange={handleChange}
                 className="bg-white border-b-[1px] border-b-[#f84464] p-[10px] text-sm w-auto"
               />
-              {errors.password && <span className="formerror text-[#ff0000]">{errors.password}</span>}
+              {errors.password && (
+                <span className="formerror text-[#ff0000]">
+                  {errors.password}
+                </span>
+              )}
             </div>
             <button
               type="submit"
@@ -115,7 +124,10 @@ const Signin = () => {
             </button>
             <p className="authlink text-center my-[10px] text-[#333444]">
               Don&apos;t have an account?{" "}
-              <Link href="/auth/signup" className="text-[#f84464] text-lg font-medium">
+              <Link
+                href="/auth/signup"
+                className="text-[#f84464] text-lg font-medium"
+              >
                 Register
               </Link>
             </p>

@@ -21,9 +21,9 @@ type Cast = {
   };
   
   type Crew = {
-    crewImage: string;
-    crewName: string;
-    crewRole: string;
+    celebImage: string;
+    celebName: string;
+    celebRole: string;
   };
   
   
@@ -224,13 +224,13 @@ const MoviePage = () => {
     <div className="celebcard flex flex-col justify-center items-center w-full mb-[40px]">
       <Image
         className="w-[80%] h-full object-cover rounded-full"
-        src={crew.crewImage}
+        src={crew.celebImage}
         width={200}
         height={200}
-        alt={`${crew.crewName}'s image`}
+        alt={`${crew.celebName}'s image`}
       />
-      <h3 className="text-lg text-black font-semibold">{crew.crewName}</h3>
-      <h4 className="text-sm text-gray font-normal">{crew.crewRole}</h4>
+      <h3 className="text-lg text-black font-semibold">{crew.celebName}</h3>
+      <h4 className="text-sm text-gray font-normal">{crew.celebRole}</h4>
     </div>
   </SwiperSlide>
 ))}
